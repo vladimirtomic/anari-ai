@@ -24,17 +24,17 @@ pip install -r requirements.txt
 
 Hierarchy tree has been implemented in the basic Graphviz template - no fancy styling.
 
-Trees are usually plotted vertically (top to bottom, sometimes bottom to top) - this was resulting in unreadably wide graphs, so the default (hard-coded) orientation was set to left-to-right.
+Trees are usually plotted vertically (top-to-bottom, sometimes bottom-to-top) - this was resulting in unreadably wide graphs, so the default (hard-coded) orientation was set to left-to-right.
 
 ### DAG (drected acyclic graph)
 
 Initial plots of module architecture in a DAG format were messy with a large number of edges being plotted, which resulted in graph that wasn't easy to understand.
 
-Again, top to bottom orientation was replaced with left-to-right.
+Again, top-to-bottom orientation was replaced with left-to-right.
 
-First improvement was to plot all hierarchical modules as subgraphs. Terminal modules (non-hierarchical, also referred to as 'hardware' modules - I assume that these corresond to literal modules available in FPGA) were plotted as nodes. Record style was used so that the input ports are vertically stacked on the left, and output ports vertially stacked on the right. This resulted in a much nicer graph, but a large number of edges was missing since hierarchical module ports were not present.
+First improvement was to plot all hierarchical modules as **subgraphs**. **Terminal** modules (non-hierarchical, also referred to as '**hardware**' modules - I assume that these corresond to literal modules available in FPGA) were plotted as **nodes**. Record style was used so that the **input ports** are vertically stacked on the left, and **output ports** vertically stacked on the right. This resulted in a much nicer graph, but a large number of edges was missing since hierarchical module ports were not present.
 
-Second improvement was to trace all the logical ports (ports of hierarchical module) back to a terminal (HDL) port and plot only edges (also referred to as wires) which connect terminal ports/modules.
+Second improvement was to trace all the **logical ports** (ports of hierarchical module) back to a **terminal (HDL) port** and plot only edges (also referred to as **wires**) which connect **terminal ports/modules**.
 
 The basic assumption and rationale behind these two improvements is that the hierarchical modules are a logical aggregation of basic HDL/hardware modules - plotting only terminal modules as nodes and terminal port edges will at the same time provide insight into actual hardware modules and wires used, as well as show logical grouping of those elements into functional blocks.
 
