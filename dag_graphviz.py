@@ -34,4 +34,5 @@ priority_mux(maybe_inp1, maybe_inp2) | shred
 top = find('/')
 
 # Traverse hierarchy starting from the 'top' and generate graphviz graph
-pygearsviz.render_hierarchy_tree(gear=top, name='dag', format='svg')
+pygearsviz.render_hierarchy_tree(gear=top, name='dag_graphviz_hierarchy_tree', format='svg')
+pygearsviz.render_dag(gear=top, name='dag_graphviz_dag', format='svg')

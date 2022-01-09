@@ -1,0 +1,80 @@
+// Anari AI
+digraph dag_graphviz_dag {
+	node [shape=record style=rounded]
+	rankdir=LR
+	fontcolor="#FFFFFF"
+	subgraph cluster_ {
+		fillcolor="#88888877" label="" style="rounded, filled"
+		"/drv0" [label="{{}|/drv0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/drv1" [label="{{}|/drv1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/ccat0" [label="{{<din0> din0|<din1> din1}|/ccat0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/sub" [label="{{<din> din}|/sub|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/ccat1" [label="{{<din0> din0|<din1> din1}|/ccat1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/const0" [label="{{}|/const0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/gt" [label="{{<din> din}|/gt|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		subgraph "cluster_/when0" {
+			fillcolor="#88888877" label=when0 style="rounded, filled"
+			"/when0/ccat" [label="{{<din0> din0|<din1> din1}|/when0/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			"/when0/cast_dout" [label="{{<din> din}|/when0/cast_dout|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			subgraph "cluster_/when0/filt" {
+				fillcolor="#88888877" label=filt style="rounded, filled"
+				"/when0/filt/ccat" [label="{{<din0> din0|<din1> din1}|/when0/filt/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when0/filt/const" [label="{{}|/when0/filt/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when0/filt/filt" [label="{{<din> din}|/when0/filt/filt|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when0/filt/sieve_0" [label="{{<din> din}|/when0/filt/sieve_0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when0/filt/code" [label="{{<din> din}|/when0/filt/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			}
+		}
+		"/ccat2" [label="{{<din0> din0|<din1> din1}|/ccat2|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/mul" [label="{{<din> din}|/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/ccat3" [label="{{<din0> din0|<din1> din1}|/ccat3|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/const1" [label="{{}|/const1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/lt" [label="{{<din> din}|/lt|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		subgraph "cluster_/when1" {
+			fillcolor="#88888877" label=when1 style="rounded, filled"
+			"/when1/ccat" [label="{{<din0> din0|<din1> din1}|/when1/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			"/when1/cast_dout" [label="{{<din> din}|/when1/cast_dout|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			subgraph "cluster_/when1/filt" {
+				fillcolor="#88888877" label=filt style="rounded, filled"
+				"/when1/filt/ccat" [label="{{<din0> din0|<din1> din1}|/when1/filt/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when1/filt/const" [label="{{}|/when1/filt/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when1/filt/filt" [label="{{<din> din}|/when1/filt/filt|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when1/filt/sieve_0" [label="{{<din> din}|/when1/filt/sieve_0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/when1/filt/code" [label="{{<din> din}|/when1/filt/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			}
+		}
+		"/priority_mux" [label="{{<din0> din0|<din1> din1}|/priority_mux|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/shred" [label="{{<din> din}|/shred|{}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+	}
+	"/drv0":dout -> "/ccat0":din0
+	"/drv0":dout -> "/ccat2":din0
+	"/drv1":dout -> "/ccat0":din1
+	"/drv1":dout -> "/ccat2":din1
+	"/ccat0":dout -> "/sub":din
+	"/sub":dout -> "/ccat1":din0
+	"/const0":dout -> "/ccat1":din1
+	"/ccat1":dout -> "/gt":din
+	"/when0/filt/code":dout -> "/priority_mux":din0
+	"/ccat2":dout -> "/mul":din
+	"/mul":dout -> "/ccat3":din0
+	"/const1":dout -> "/ccat3":din1
+	"/ccat3":dout -> "/lt":din
+	"/when1/filt/code":dout -> "/priority_mux":din1
+	"/priority_mux":dout -> "/shred":din
+	"/drv0":dout -> "/when0/ccat":din0
+	"/gt":dout -> "/when0/ccat":din1
+	"/when0/ccat":dout -> "/when0/cast_dout":din
+	"/when0/cast_dout":dout -> "/when0/filt/ccat":din0
+	"/when0/filt/const":dout -> "/when0/filt/ccat":din1
+	"/when0/filt/ccat":dout -> "/when0/filt/filt":din
+	"/when0/filt/filt":dout -> "/when0/filt/sieve_0":din
+	"/when0/filt/sieve_0":dout -> "/when0/filt/code":din
+	"/drv1":dout -> "/when1/ccat":din0
+	"/lt":dout -> "/when1/ccat":din1
+	"/when1/ccat":dout -> "/when1/cast_dout":din
+	"/when1/cast_dout":dout -> "/when1/filt/ccat":din0
+	"/when1/filt/const":dout -> "/when1/filt/ccat":din1
+	"/when1/filt/ccat":dout -> "/when1/filt/filt":din
+	"/when1/filt/filt":dout -> "/when1/filt/sieve_0":din
+	"/when1/filt/sieve_0":dout -> "/when1/filt/code":din
+}

@@ -10,6 +10,8 @@ https://github.com/vladimirtomic/anari-ai
 
 import graphviz
 from pygears import find
+from pygears.core.intf import Intf
+from pygears.core.port import HDLProducer, HDLConsumer
 
 
 def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
@@ -49,3 +51,117 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
 
     g.view()
     # print(g.source)
+
+
+def render_dag(gear, name='grand_tour_dag', format='pdf'):
+    g = graphviz.Digraph(name=name, comment='Anari AI', format=format, node_attr={'shape': 'record', 'style': 'rounded'})
+    g.attr(rankdir='LR')
+    g.attr(fontcolor='#FFFFFF')
+
+    def short(port):
+        return port.name.split('.')[-1]
+
+    def dot_string(ports):
+        body = '|'.join(f'<{short(port)}> {short(port)}' for port in ports)
+        return '{' + body + '}'
+
+    def cluster_name(gear):
+        return f'cluster_{gear.name}' if gear.hierarchical else gear.name
+
+    def find_producer(port):
+    #     print(f'Find producer for {port}')
+        if isinstance(port, HDLProducer):
+        # raise Exception('HDLProducer provided as argument for find_producer()!')
+            return None
+        
+        if isinstance(port.producer, HDLProducer):
+            return port
+
+        if isinstance(port.producer, Intf):
+            producer = find_producer(port.producer.producer)
+    #         if producer:
+    #             print(f'FOUND producer {producer}')
+            return producer if producer else port
+
+    def find_consumers(ports):
+        consumers = set()
+        
+        for port in ports:
+            if isinstance(port, HDLConsumer):
+                pass
+            elif isinstance(port.consumer, HDLConsumer):
+                consumers.add(port)
+            elif isinstance(port.consumer, Intf):
+                for consumer in port.consumer.consumers:
+                    if isinstance(consumer, HDLConsumer):
+                        consumers.add(port)
+                    else:
+                        consumers.union(find_consumers(set([consumer])))
+            else:
+                consumers.add(port)
+
+    #     if consumers:
+    #         print(f'FOUND {consumers}')
+
+        return consumers
+       
+    def find_wires(intf):
+        wires = []
+        producer = find_producer(intf.producer)
+        consumers = find_consumers(intf.consumers)
+        for consumer in consumers:
+            if producer and consumer:
+                wires.append([producer, consumer])
+        # print(wires)
+        return wires
+
+    def render_gear(gear, parent_graph):
+        if gear.hierarchical:
+            with parent_graph.subgraph(name=cluster_name(gear)) as sg:
+                sg.attr(label=gear.basename, style='rounded, filled', fillcolor='#88888877')
+                for child in gear.child:
+                    render_gear(child, sg)
+        else:
+            ins = dot_string(gear.in_ports)
+            outs = dot_string(gear.out_ports)
+            parent_graph.node(name=gear.name, label='{' + f'{ins}|{gear.name}|{outs}' + '}', style='rounded,filled', fillcolor='#22222222', fontcolor='#FFFFFF')
+
+    def render_wires(gear, g):
+        # print(f'Render wires for {name(gear)}.')
+        wires = []
+
+        if gear.hierarchical:
+            for intf in gear.local_intfs:
+                wires.extend(find_wires(intf))
+                
+            for child in gear.child:
+                wires.extend(render_wires(child, g))
+        else:
+            for port in gear.in_ports:
+                wires.extend(find_wires(port.producer))            
+
+            for port in gear.out_ports:
+                wires.extend(find_wires(port.consumer))
+        
+        return wires
+
+    render_gear(find('/'), g)
+    wires = render_wires(find('/'), g)
+
+    printed_wires = set()
+
+    for wire in wires:
+        if str(wire) in printed_wires:
+            continue
+        else:
+            printed_wires.add(str(wire))
+    #     print(wire)
+        producer = wire[0]
+        consumer = wire[1]
+        src = f'{producer.gear.name}:{short(producer)}'
+        dst = f'{consumer.gear.name}:{short(consumer)}'
+        g.edge(src, dst)
+
+    g.view()
+    # print(g.source)
+    # print(wires)
