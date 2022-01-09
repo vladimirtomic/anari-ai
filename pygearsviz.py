@@ -13,7 +13,7 @@ from pygears.core.intf import Intf
 from pygears.core.port import HDLProducer, HDLConsumer
 
 
-def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
+def render_hierarchy_tree(gear, name='top_gear_hierarchy_tree', format='svg'):
     """Render PyGears module hierarchy tree
 
     Parameters
@@ -21,9 +21,9 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
     gear : pygears.core.gear.Gear
         PyGears module to use as the root
     name : str, optional
-        Name of the generated output file (default is `grand_tour_hierarchy_tree`)
+        Name of the generated output file (default is `top_gear_hierarchy_tree`)
     format : str, optional
-        Format of the generated output file (default is `pdf`)
+        Format of the generated output file (default is `svg`)
     """
 
     g = graphviz.Graph(name=name, comment='Anari AI - Hierarchy Tree', format=format)
@@ -37,9 +37,20 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
         gear : pygears.core.gear.Gear
             PyGears gear whose name to fetch
         """
+        
         return gear.name if gear.name else 'Top'
 
     def render_gear(gear, parent=None):
+        """Recursively render gear
+
+        Parameters
+        ----------
+        gear : pygears.core.gear.Gear
+            PyGears module to render
+        parent : pygears.core.gear.Gear
+            Parent PyGears module
+        """
+
         g.node(name(gear), name(gear), shape='record')
         if parent:
             g.edge(name(parent), name(gear))
@@ -51,7 +62,7 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
     g.view()
 
 
-def render_dag(gear, name='grand_tour_dag', format='pdf'):
+def render_dag(gear, name='top_gear_dag', format='svg'):
     """Render PyGears module DAG (directed acyclic graph)
 
     Parameters
@@ -59,9 +70,9 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
     gear : pygears.core.gear.Gear
         PyGears module to use as the root
     name : str, optional
-        Name of the generated output file (default is `grand_tour_dag`)
+        Name of the generated output file (default is `top_gear_dag`)
     format : str, optional
-        Format of the generated output file (default is `pdf`)
+        Format of the generated output file (default is `svg`)
     """
 
     g = graphviz.Digraph(name=name, comment='Anari AI', format=format, node_attr={'shape': 'record', 'style': 'rounded'})
