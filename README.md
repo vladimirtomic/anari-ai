@@ -10,7 +10,7 @@ PyGearsViz is a python3 Anari AI PyGears architecture visualization tool. It is 
 
 ## Setup
 
-This project was developed using a Mac with [MS Visual Studio Code](https://code.visualstudio.com/download#). [Python3](https://www.python.org/downloads/) 3.10.1 was installed in a dedicated [pyenv](https://github.com/pyenv/pyenv) environment. [Graphviz](https://graphviz.org/download/) 2.50.0 and pyenv were installed using [homebrew](https://brew.sh/).
+This project was developed using a Mac with [MS Visual Studio Code](https://code.visualstudio.com/download#). [Python 3.10.1](https://www.python.org/downloads/) was installed in a dedicated [pyenv](https://github.com/pyenv/pyenv) environment. [Graphviz 2.50.0](https://graphviz.org/download/) and pyenv were installed using [homebrew](https://brew.sh/).
 
 Install python dependencies:
 
@@ -41,5 +41,16 @@ Plot the logical module architecture (directed acyclical graph) of a gear:
 gear = find('/')
 pygearsviz.render_dag(gear, name='grand_tour_dag', format='pdf')
 ```
+
+### Examples
+
+Run:
+
+```
+$ python dag_graphviz.py
+$ python depthwise_graphviz.py
+```
+
+## Contact
 
 Please report issues and post questions in this [GitHub repo](https://github.com/vladimirtomic/anari-ai).
