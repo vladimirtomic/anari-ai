@@ -50,28 +50,48 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
     render_gear(find('/'))
 
     g.view()
-    # print(g.source)
 
 
 def render_dag(gear, name='grand_tour_dag', format='pdf'):
+    """Render PyGears module DAG (directed acyclic graph)
+
+    Parameters
+    ----------
+    gear : pygears.core.gear.Gear
+        PyGears module to use as the root
+    name : str, optional
+        Name of the generated output file (default is `grand_tour_dag`)
+    format : str, optional
+        Format of the generated output file (default is `pdf`)
+    """
+
     g = graphviz.Digraph(name=name, comment='Anari AI', format=format, node_attr={'shape': 'record', 'style': 'rounded'})
     g.attr(rankdir='LR')
     g.attr(fontcolor='#FFFFFF')
 
     def short(port):
+        """Fetch the terminal name of the port, ex. 'dout'"""
+
         return port.name.split('.')[-1]
 
     def dot_string(ports):
+        """For 'hardware' (non-hierarchical) gears fetch DOT notation with anchors"""
+
         body = '|'.join(f'<{short(port)}> {short(port)}' for port in ports)
         return '{' + body + '}'
 
     def cluster_name(gear):
+        """Add prefix 'cluster_' for hierarchicl gears"""
+
         return f'cluster_{gear.name}' if gear.hierarchical else gear.name
 
     def find_producer(port):
-    #     print(f'Find producer for {port}')
+        """Find terminal producer
+        
+        Traverse producers until HDLProducer is reached
+        """
+
         if isinstance(port, HDLProducer):
-        # raise Exception('HDLProducer provided as argument for find_producer()!')
             return None
         
         if isinstance(port.producer, HDLProducer):
@@ -79,11 +99,14 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
 
         if isinstance(port.producer, Intf):
             producer = find_producer(port.producer.producer)
-    #         if producer:
-    #             print(f'FOUND producer {producer}')
             return producer if producer else port
 
     def find_consumers(ports):
+        """Find terminal consumers
+        
+        Traverse consumers until HDLConsumer is reached
+        """
+
         consumers = set()
         
         for port in ports:
@@ -100,22 +123,34 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
             else:
                 consumers.add(port)
 
-    #     if consumers:
-    #         print(f'FOUND {consumers}')
-
         return consumers
        
     def find_wires(intf):
+        """Find terminal producer/consumer pairs for a given intf"""
+        
         wires = []
         producer = find_producer(intf.producer)
         consumers = find_consumers(intf.consumers)
         for consumer in consumers:
             if producer and consumer:
                 wires.append([producer, consumer])
-        # print(wires)
+
         return wires
 
     def render_gear(gear, parent_graph):
+        """Render module logical architecture
+        
+        Recursively render each hierarchichal gear as a subgraph until
+        'hardware' (non-hierarchical) gear is rendered as a node.
+        
+        Parameters
+        ----------
+        gear : pygears.core.gear.Gear
+            PyGears module to render
+        parent_graph : graphviz.Digraph or graphviz.Subgraph
+            Parent (sub)graph in which the current gear is being rendered
+        """
+
         if gear.hierarchical:
             with parent_graph.subgraph(name=cluster_name(gear)) as sg:
                 sg.attr(label=gear.basename, style='rounded, filled', fillcolor='#88888877')
@@ -127,7 +162,19 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
             parent_graph.node(name=gear.name, label='{' + f'{ins}|{gear.name}|{outs}' + '}', style='rounded,filled', fillcolor='#22222222', fontcolor='#FFFFFF')
 
     def render_wires(gear, g):
-        # print(f'Render wires for {name(gear)}.')
+        """Render all terminal wires
+
+        Recursively traverse the interfaces and ports of
+        the provided gear to fetch all terminal wires.
+
+        Parameters
+        ----------
+        gear : pygears.core.gear.Gear
+            PyGears module to traverse and fetch terminal wires
+        parent_graph : graphviz.Digraph or graphviz.Subgraph
+            Parent (sub)graph in which the current gear is being rendered
+        """
+
         wires = []
 
         if gear.hierarchical:
@@ -155,7 +202,6 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
             continue
         else:
             printed_wires.add(str(wire))
-    #     print(wire)
         producer = wire[0]
         consumer = wire[1]
         src = f'{producer.gear.name}:{short(producer)}'
@@ -163,5 +209,3 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
         g.edge(src, dst)
 
     g.view()
-    # print(g.source)
-    # print(wires)
