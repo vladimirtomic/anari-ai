@@ -108,13 +108,13 @@
 <text text-anchor="middle" x="101.5" y="-119.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /drv1&#45;&gt;/ccat0 -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>/drv1:dout&#45;&gt;/ccat0:din1</title>
 <path fill="none" stroke="black" d="M122,-123C157.76,-123 126.19,-189.19 148.28,-202.63"/>
 <polygon fill="black" stroke="black" points="147.46,-206.04 158,-205 149.11,-199.23 147.46,-206.04"/>
 </g>
 <!-- /drv1&#45;&gt;/ccat2 -->
-<g id="edge4" class="edge">
+<g id="edge3" class="edge">
 <title>/drv1:dout&#45;&gt;/ccat2:din1</title>
 <path fill="none" stroke="black" d="M122,-123C134,-123 139.25,-123 147.88,-123"/>
 <polygon fill="black" stroke="black" points="148,-126.5 158,-123 148,-119.5 148,-126.5"/>

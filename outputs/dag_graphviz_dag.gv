@@ -48,8 +48,8 @@ digraph dag_graphviz_dag {
 	}
 	"/drv0":dout -> "/ccat2":din0
 	"/drv0":dout -> "/ccat0":din0
-	"/drv1":dout -> "/ccat0":din1
 	"/drv1":dout -> "/ccat2":din1
+	"/drv1":dout -> "/ccat0":din1
 	"/ccat0":dout -> "/sub":din
 	"/sub":dout -> "/ccat1":din0
 	"/const0":dout -> "/ccat1":din1

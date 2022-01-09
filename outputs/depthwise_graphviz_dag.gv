@@ -260,8 +260,8 @@ digraph depthwise_graphviz_dag {
 	"/drv1":dout -> "/depthwise/qdeal":din
 	"/depthwise/filter0/cast":dout -> "/depthwise/ccat":din0
 	"/depthwise/filter1/cast":dout -> "/depthwise/ccat":din1
-	"/depthwise/qdeal":dout0 -> "/depthwise/filter0/wr_req":weights
 	"/depthwise/qdeal":dout0 -> "/depthwise/filter0/sieve_eot":din
+	"/depthwise/qdeal":dout0 -> "/depthwise/filter0/wr_req":weights
 	"/depthwise/filter0/sieve_eot":dout -> "/depthwise/filter0/dreg":din
 	"/depthwise/filter0/when/filt/code":dout -> "/depthwise/filter0/ccat0":din1
 	"/depthwise/filter0/const1":dout -> "/depthwise/filter0/ccat0":din0
@@ -317,8 +317,8 @@ digraph depthwise_graphviz_dag {
 	"/depthwise/filter0/dot1/const":dout -> "/depthwise/filter0/dot1/accum/reduce":init
 	"/depthwise/filter0/dot2/accum/reduce":dout -> "/depthwise/filter0/dot2/qround":din
 	"/depthwise/filter0/dot2/qround":dout -> "/depthwise/filter0/dot2/saturate":data
-	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/project":din
 	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/quenvelope":din
+	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/project":din
 	"/depthwise/filter0/dot2/queuemap/project":dout -> "/depthwise/filter0/dot2/queuemap/mul":din
 	"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter0/dot2/queuemap/code":din
 	"/depthwise/filter0/dot2/queuemap/quenvelope":dout -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":din0
@@ -384,8 +384,8 @@ digraph depthwise_graphviz_dag {
 	"/depthwise/filter1/dot1/const":dout -> "/depthwise/filter1/dot1/accum/reduce":init
 	"/depthwise/filter1/dot2/accum/reduce":dout -> "/depthwise/filter1/dot2/qround":din
 	"/depthwise/filter1/dot2/qround":dout -> "/depthwise/filter1/dot2/saturate":data
-	"/depthwise/filter1/sieve_2":dout -> "/depthwise/filter1/dot2/queuemap/quenvelope":din
 	"/depthwise/filter1/sieve_2":dout -> "/depthwise/filter1/dot2/queuemap/project":din
+	"/depthwise/filter1/sieve_2":dout -> "/depthwise/filter1/dot2/queuemap/quenvelope":din
 	"/depthwise/filter1/dot2/queuemap/project":dout -> "/depthwise/filter1/dot2/queuemap/mul":din
 	"/depthwise/filter1/dot2/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter1/dot2/queuemap/code":din
 	"/depthwise/filter1/dot2/queuemap/quenvelope":dout -> "/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync":din0
