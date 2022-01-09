@@ -8,6 +8,7 @@ from pygears.typing import Uint
 from pygears.lib import drv, priority_mux, shred, when
 
 # Packages used for verification and visualization
+import pygearsviz
 
 reg['gear/memoize'] = False
 
@@ -31,3 +32,6 @@ priority_mux(maybe_inp1, maybe_inp2) | shred
 ##############################################
 
 top = find('/')
+
+# Traverse hierarchy starting from the 'top' and generate graphviz graph
+pygearsviz.render_hierarchy_tree(gear=top, name='dag', format='svg')

@@ -17,6 +17,7 @@ from pygears.lib import accum, ccat, collect, czip, dreg, drv, flatten, mul, qde
 import matplotlib.image as mpimg
 import numpy as np
 import matplotlib.pyplot as plt
+import pygearsviz
 
 reg['gear/memoize'] = False
 
@@ -140,3 +141,4 @@ depthwise(img_drv, w_drv, num=2) \
 top = find('/')
 
 # Traverse hierarchy starting from the 'top' and generate graphviz graph
+pygearsviz.render_hierarchy_tree(gear=top, name='depthwise', format='svg')
