@@ -1,0 +1,397 @@
+// Anari AI
+digraph depthwise_graphviz_dag {
+	node [shape=record style=rounded]
+	rankdir=LR
+	fontcolor="#FFFFFF"
+	subgraph cluster_ {
+		fillcolor="#88888877" label="" style="rounded, filled"
+		"/drv0" [label="{{}|/drv0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/drv1" [label="{{}|/drv1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		subgraph "cluster_/depthwise" {
+			fillcolor="#88888877" label=depthwise style="rounded, filled"
+			"/depthwise/qdeal" [label="{{<din> din}|/depthwise/qdeal|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			subgraph "cluster_/depthwise/filter0" {
+				fillcolor="#88888877" label=filter0 style="rounded, filled"
+				"/depthwise/filter0/sieve_eot" [label="{{<din> din}|/depthwise/filter0/sieve_eot|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/dreg" [label="{{<din> din}|/depthwise/filter0/dreg|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter0/when" {
+					fillcolor="#88888877" label=when style="rounded, filled"
+					"/depthwise/filter0/when/ccat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/when/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/when/cast_dout" [label="{{<din> din}|/depthwise/filter0/when/cast_dout|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					subgraph "cluster_/depthwise/filter0/when/filt" {
+						fillcolor="#88888877" label=filt style="rounded, filled"
+						"/depthwise/filter0/when/filt/ccat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/when/filt/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/when/filt/const" [label="{{}|/depthwise/filter0/when/filt/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/when/filt/filt" [label="{{<din> din}|/depthwise/filter0/when/filt/filt|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/when/filt/sieve_0" [label="{{<din> din}|/depthwise/filter0/when/filt/sieve_0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/when/filt/code" [label="{{<din> din}|/depthwise/filter0/when/filt/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+				}
+				"/depthwise/filter0/const0" [label="{{}|/depthwise/filter0/const0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/ccat0" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/ccat0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/const1" [label="{{}|/depthwise/filter0/const1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/replicate" [label="{{<din> din}|/depthwise/filter0/replicate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/flatten0" [label="{{<din> din}|/depthwise/filter0/flatten0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/qrange" [label="{{<stop> stop}|/depthwise/filter0/qrange|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/flatten1" [label="{{<din> din}|/depthwise/filter0/flatten1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/wr_req" [label="{{<weights> weights}|/depthwise/filter0/wr_req|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter0/sdp" {
+					fillcolor="#88888877" label=sdp style="rounded, filled"
+					"/depthwise/filter0/sdp/sdp_wr_port" [label="{{<din> din}|/depthwise/filter0/sdp/sdp_wr_port|{}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/sdp/sdp_rd_port" [label="{{<addr> addr}|/depthwise/filter0/sdp/sdp_rd_port|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				subgraph "cluster_/depthwise/filter0/czip" {
+					fillcolor="#88888877" label=czip style="rounded, filled"
+					subgraph "cluster_/depthwise/filter0/czip/czip2" {
+						fillcolor="#88888877" label=czip2 style="rounded, filled"
+						"/depthwise/filter0/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+				}
+				"/depthwise/filter0/reorder" [label="{{<din> din}|/depthwise/filter0/reorder|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/sieve_0" [label="{{<din> din}|/depthwise/filter0/sieve_0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter0/dot0" {
+					fillcolor="#88888877" label=dot0 style="rounded, filled"
+					subgraph "cluster_/depthwise/filter0/dot0/queuemap" {
+						fillcolor="#88888877" label=queuemap style="rounded, filled"
+						"/depthwise/filter0/dot0/queuemap/quenvelope" [label="{{<din> din}|/depthwise/filter0/dot0/queuemap/quenvelope|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/dot0/queuemap/project" [label="{{<din> din}|/depthwise/filter0/dot0/queuemap/project|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/dot0/queuemap/mul" [label="{{<din> din}|/depthwise/filter0/dot0/queuemap/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						subgraph "cluster_/depthwise/filter0/dot0/queuemap/czip" {
+							fillcolor="#88888877" label=czip style="rounded, filled"
+							subgraph "cluster_/depthwise/filter0/dot0/queuemap/czip/czip2" {
+								fillcolor="#88888877" label=czip2 style="rounded, filled"
+								"/depthwise/filter0/dot0/queuemap/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/dot0/queuemap/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+								"/depthwise/filter0/dot0/queuemap/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/dot0/queuemap/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+							}
+						}
+						"/depthwise/filter0/dot0/queuemap/code" [label="{{<din> din}|/depthwise/filter0/dot0/queuemap/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					subgraph "cluster_/depthwise/filter0/dot0/accum" {
+						fillcolor="#88888877" label=accum style="rounded, filled"
+						"/depthwise/filter0/dot0/accum/reduce" [label="{{<din> din|<init> init}|/depthwise/filter0/dot0/accum/reduce|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					"/depthwise/filter0/dot0/const" [label="{{}|/depthwise/filter0/dot0/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/dot0/qround" [label="{{<din> din}|/depthwise/filter0/dot0/qround|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/dot0/saturate" [label="{{<data> data}|/depthwise/filter0/dot0/saturate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				"/depthwise/filter0/sieve_1" [label="{{<din> din}|/depthwise/filter0/sieve_1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter0/dot1" {
+					fillcolor="#88888877" label=dot1 style="rounded, filled"
+					subgraph "cluster_/depthwise/filter0/dot1/queuemap" {
+						fillcolor="#88888877" label=queuemap style="rounded, filled"
+						"/depthwise/filter0/dot1/queuemap/quenvelope" [label="{{<din> din}|/depthwise/filter0/dot1/queuemap/quenvelope|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/dot1/queuemap/project" [label="{{<din> din}|/depthwise/filter0/dot1/queuemap/project|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/dot1/queuemap/mul" [label="{{<din> din}|/depthwise/filter0/dot1/queuemap/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						subgraph "cluster_/depthwise/filter0/dot1/queuemap/czip" {
+							fillcolor="#88888877" label=czip style="rounded, filled"
+							subgraph "cluster_/depthwise/filter0/dot1/queuemap/czip/czip2" {
+								fillcolor="#88888877" label=czip2 style="rounded, filled"
+								"/depthwise/filter0/dot1/queuemap/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/dot1/queuemap/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+								"/depthwise/filter0/dot1/queuemap/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/dot1/queuemap/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+							}
+						}
+						"/depthwise/filter0/dot1/queuemap/code" [label="{{<din> din}|/depthwise/filter0/dot1/queuemap/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					subgraph "cluster_/depthwise/filter0/dot1/accum" {
+						fillcolor="#88888877" label=accum style="rounded, filled"
+						"/depthwise/filter0/dot1/accum/reduce" [label="{{<din> din|<init> init}|/depthwise/filter0/dot1/accum/reduce|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					"/depthwise/filter0/dot1/const" [label="{{}|/depthwise/filter0/dot1/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/dot1/qround" [label="{{<din> din}|/depthwise/filter0/dot1/qround|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/dot1/saturate" [label="{{<data> data}|/depthwise/filter0/dot1/saturate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				"/depthwise/filter0/sieve_2" [label="{{<din> din}|/depthwise/filter0/sieve_2|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter0/dot2" {
+					fillcolor="#88888877" label=dot2 style="rounded, filled"
+					subgraph "cluster_/depthwise/filter0/dot2/queuemap" {
+						fillcolor="#88888877" label=queuemap style="rounded, filled"
+						"/depthwise/filter0/dot2/queuemap/quenvelope" [label="{{<din> din}|/depthwise/filter0/dot2/queuemap/quenvelope|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/dot2/queuemap/project" [label="{{<din> din}|/depthwise/filter0/dot2/queuemap/project|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter0/dot2/queuemap/mul" [label="{{<din> din}|/depthwise/filter0/dot2/queuemap/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						subgraph "cluster_/depthwise/filter0/dot2/queuemap/czip" {
+							fillcolor="#88888877" label=czip style="rounded, filled"
+							subgraph "cluster_/depthwise/filter0/dot2/queuemap/czip/czip2" {
+								fillcolor="#88888877" label=czip2 style="rounded, filled"
+								"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+								"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+							}
+						}
+						"/depthwise/filter0/dot2/queuemap/code" [label="{{<din> din}|/depthwise/filter0/dot2/queuemap/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					subgraph "cluster_/depthwise/filter0/dot2/accum" {
+						fillcolor="#88888877" label=accum style="rounded, filled"
+						"/depthwise/filter0/dot2/accum/reduce" [label="{{<din> din|<init> init}|/depthwise/filter0/dot2/accum/reduce|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					"/depthwise/filter0/dot2/const" [label="{{}|/depthwise/filter0/dot2/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/dot2/qround" [label="{{<din> din}|/depthwise/filter0/dot2/qround|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter0/dot2/saturate" [label="{{<data> data}|/depthwise/filter0/dot2/saturate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				"/depthwise/filter0/ccat1" [label="{{<din0> din0|<din1> din1|<din2> din2}|/depthwise/filter0/ccat1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter0/cast" [label="{{<din> din}|/depthwise/filter0/cast|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			}
+			subgraph "cluster_/depthwise/filter1" {
+				fillcolor="#88888877" label=filter1 style="rounded, filled"
+				"/depthwise/filter1/sieve_eot" [label="{{<din> din}|/depthwise/filter1/sieve_eot|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/dreg" [label="{{<din> din}|/depthwise/filter1/dreg|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter1/when" {
+					fillcolor="#88888877" label=when style="rounded, filled"
+					"/depthwise/filter1/when/ccat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/when/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/when/cast_dout" [label="{{<din> din}|/depthwise/filter1/when/cast_dout|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					subgraph "cluster_/depthwise/filter1/when/filt" {
+						fillcolor="#88888877" label=filt style="rounded, filled"
+						"/depthwise/filter1/when/filt/ccat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/when/filt/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/when/filt/const" [label="{{}|/depthwise/filter1/when/filt/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/when/filt/filt" [label="{{<din> din}|/depthwise/filter1/when/filt/filt|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/when/filt/sieve_0" [label="{{<din> din}|/depthwise/filter1/when/filt/sieve_0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/when/filt/code" [label="{{<din> din}|/depthwise/filter1/when/filt/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+				}
+				"/depthwise/filter1/const0" [label="{{}|/depthwise/filter1/const0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/ccat0" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/ccat0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/const1" [label="{{}|/depthwise/filter1/const1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/replicate" [label="{{<din> din}|/depthwise/filter1/replicate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/flatten0" [label="{{<din> din}|/depthwise/filter1/flatten0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/qrange" [label="{{<stop> stop}|/depthwise/filter1/qrange|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/flatten1" [label="{{<din> din}|/depthwise/filter1/flatten1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/wr_req" [label="{{<weights> weights}|/depthwise/filter1/wr_req|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter1/sdp" {
+					fillcolor="#88888877" label=sdp style="rounded, filled"
+					"/depthwise/filter1/sdp/sdp_wr_port" [label="{{<din> din}|/depthwise/filter1/sdp/sdp_wr_port|{}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/sdp/sdp_rd_port" [label="{{<addr> addr}|/depthwise/filter1/sdp/sdp_rd_port|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				subgraph "cluster_/depthwise/filter1/czip" {
+					fillcolor="#88888877" label=czip style="rounded, filled"
+					subgraph "cluster_/depthwise/filter1/czip/czip2" {
+						fillcolor="#88888877" label=czip2 style="rounded, filled"
+						"/depthwise/filter1/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+				}
+				"/depthwise/filter1/reorder" [label="{{<din> din}|/depthwise/filter1/reorder|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/sieve_0" [label="{{<din> din}|/depthwise/filter1/sieve_0|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter1/dot0" {
+					fillcolor="#88888877" label=dot0 style="rounded, filled"
+					subgraph "cluster_/depthwise/filter1/dot0/queuemap" {
+						fillcolor="#88888877" label=queuemap style="rounded, filled"
+						"/depthwise/filter1/dot0/queuemap/quenvelope" [label="{{<din> din}|/depthwise/filter1/dot0/queuemap/quenvelope|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/dot0/queuemap/project" [label="{{<din> din}|/depthwise/filter1/dot0/queuemap/project|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/dot0/queuemap/mul" [label="{{<din> din}|/depthwise/filter1/dot0/queuemap/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						subgraph "cluster_/depthwise/filter1/dot0/queuemap/czip" {
+							fillcolor="#88888877" label=czip style="rounded, filled"
+							subgraph "cluster_/depthwise/filter1/dot0/queuemap/czip/czip2" {
+								fillcolor="#88888877" label=czip2 style="rounded, filled"
+								"/depthwise/filter1/dot0/queuemap/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/dot0/queuemap/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+								"/depthwise/filter1/dot0/queuemap/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/dot0/queuemap/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+							}
+						}
+						"/depthwise/filter1/dot0/queuemap/code" [label="{{<din> din}|/depthwise/filter1/dot0/queuemap/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					subgraph "cluster_/depthwise/filter1/dot0/accum" {
+						fillcolor="#88888877" label=accum style="rounded, filled"
+						"/depthwise/filter1/dot0/accum/reduce" [label="{{<din> din|<init> init}|/depthwise/filter1/dot0/accum/reduce|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					"/depthwise/filter1/dot0/const" [label="{{}|/depthwise/filter1/dot0/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/dot0/qround" [label="{{<din> din}|/depthwise/filter1/dot0/qround|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/dot0/saturate" [label="{{<data> data}|/depthwise/filter1/dot0/saturate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				"/depthwise/filter1/sieve_1" [label="{{<din> din}|/depthwise/filter1/sieve_1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter1/dot1" {
+					fillcolor="#88888877" label=dot1 style="rounded, filled"
+					subgraph "cluster_/depthwise/filter1/dot1/queuemap" {
+						fillcolor="#88888877" label=queuemap style="rounded, filled"
+						"/depthwise/filter1/dot1/queuemap/quenvelope" [label="{{<din> din}|/depthwise/filter1/dot1/queuemap/quenvelope|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/dot1/queuemap/project" [label="{{<din> din}|/depthwise/filter1/dot1/queuemap/project|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/dot1/queuemap/mul" [label="{{<din> din}|/depthwise/filter1/dot1/queuemap/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						subgraph "cluster_/depthwise/filter1/dot1/queuemap/czip" {
+							fillcolor="#88888877" label=czip style="rounded, filled"
+							subgraph "cluster_/depthwise/filter1/dot1/queuemap/czip/czip2" {
+								fillcolor="#88888877" label=czip2 style="rounded, filled"
+								"/depthwise/filter1/dot1/queuemap/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/dot1/queuemap/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+								"/depthwise/filter1/dot1/queuemap/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/dot1/queuemap/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+							}
+						}
+						"/depthwise/filter1/dot1/queuemap/code" [label="{{<din> din}|/depthwise/filter1/dot1/queuemap/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					subgraph "cluster_/depthwise/filter1/dot1/accum" {
+						fillcolor="#88888877" label=accum style="rounded, filled"
+						"/depthwise/filter1/dot1/accum/reduce" [label="{{<din> din|<init> init}|/depthwise/filter1/dot1/accum/reduce|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					"/depthwise/filter1/dot1/const" [label="{{}|/depthwise/filter1/dot1/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/dot1/qround" [label="{{<din> din}|/depthwise/filter1/dot1/qround|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/dot1/saturate" [label="{{<data> data}|/depthwise/filter1/dot1/saturate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				"/depthwise/filter1/sieve_2" [label="{{<din> din}|/depthwise/filter1/sieve_2|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				subgraph "cluster_/depthwise/filter1/dot2" {
+					fillcolor="#88888877" label=dot2 style="rounded, filled"
+					subgraph "cluster_/depthwise/filter1/dot2/queuemap" {
+						fillcolor="#88888877" label=queuemap style="rounded, filled"
+						"/depthwise/filter1/dot2/queuemap/quenvelope" [label="{{<din> din}|/depthwise/filter1/dot2/queuemap/quenvelope|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/dot2/queuemap/project" [label="{{<din> din}|/depthwise/filter1/dot2/queuemap/project|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						"/depthwise/filter1/dot2/queuemap/mul" [label="{{<din> din}|/depthwise/filter1/dot2/queuemap/mul|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+						subgraph "cluster_/depthwise/filter1/dot2/queuemap/czip" {
+							fillcolor="#88888877" label=czip style="rounded, filled"
+							subgraph "cluster_/depthwise/filter1/dot2/queuemap/czip/czip2" {
+								fillcolor="#88888877" label=czip2 style="rounded, filled"
+								"/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync|{<dout0> dout0|<dout1> dout1}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+								"/depthwise/filter1/dot2/queuemap/czip/czip2/zip_cat" [label="{{<din0> din0|<din1> din1}|/depthwise/filter1/dot2/queuemap/czip/czip2/zip_cat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+							}
+						}
+						"/depthwise/filter1/dot2/queuemap/code" [label="{{<din> din}|/depthwise/filter1/dot2/queuemap/code|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					subgraph "cluster_/depthwise/filter1/dot2/accum" {
+						fillcolor="#88888877" label=accum style="rounded, filled"
+						"/depthwise/filter1/dot2/accum/reduce" [label="{{<din> din|<init> init}|/depthwise/filter1/dot2/accum/reduce|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					}
+					"/depthwise/filter1/dot2/const" [label="{{}|/depthwise/filter1/dot2/const|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/dot2/qround" [label="{{<din> din}|/depthwise/filter1/dot2/qround|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+					"/depthwise/filter1/dot2/saturate" [label="{{<data> data}|/depthwise/filter1/dot2/saturate|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				}
+				"/depthwise/filter1/ccat1" [label="{{<din0> din0|<din1> din1|<din2> din2}|/depthwise/filter1/ccat1|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+				"/depthwise/filter1/cast" [label="{{<din> din}|/depthwise/filter1/cast|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+			}
+			"/depthwise/ccat" [label="{{<din0> din0|<din1> din1}|/depthwise/ccat|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		}
+		"/cast_dout" [label="{{<din> din}|/cast_dout|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+		"/collect" [label="{{<val> val}|/collect|{}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
+	}
+	"/depthwise/ccat":dout -> "/cast_dout":din
+	"/cast_dout":dout -> "/collect":val
+	"/drv1":dout -> "/depthwise/qdeal":din
+	"/depthwise/filter0/cast":dout -> "/depthwise/ccat":din0
+	"/depthwise/filter1/cast":dout -> "/depthwise/ccat":din1
+	"/depthwise/qdeal":dout0 -> "/depthwise/filter0/sieve_eot":din
+	"/depthwise/qdeal":dout0 -> "/depthwise/filter0/wr_req":weights
+	"/depthwise/filter0/sieve_eot":dout -> "/depthwise/filter0/dreg":din
+	"/depthwise/filter0/when/filt/code":dout -> "/depthwise/filter0/ccat0":din1
+	"/depthwise/filter0/const1":dout -> "/depthwise/filter0/ccat0":din0
+	"/depthwise/filter0/ccat0":dout -> "/depthwise/filter0/replicate":din
+	"/depthwise/filter0/replicate":dout -> "/depthwise/filter0/flatten0":din
+	"/depthwise/filter0/flatten0":dout -> "/depthwise/filter0/qrange":stop
+	"/depthwise/filter0/qrange":dout -> "/depthwise/filter0/flatten1":din
+	"/depthwise/filter0/czip/czip2/zip_cat":dout -> "/depthwise/filter0/reorder":din
+	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_2":din
+	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_0":din
+	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_1":din
+	"/depthwise/filter0/dot0/saturate":dout -> "/depthwise/filter0/ccat1":din0
+	"/depthwise/filter0/dot1/saturate":dout -> "/depthwise/filter0/ccat1":din1
+	"/depthwise/filter0/dot2/saturate":dout -> "/depthwise/filter0/ccat1":din2
+	"/depthwise/filter0/ccat1":dout -> "/depthwise/filter0/cast":din
+	"/depthwise/filter0/const0":dout -> "/depthwise/filter0/when/ccat":din0
+	"/depthwise/filter0/dreg":dout -> "/depthwise/filter0/when/ccat":din1
+	"/depthwise/filter0/when/ccat":dout -> "/depthwise/filter0/when/cast_dout":din
+	"/depthwise/filter0/when/cast_dout":dout -> "/depthwise/filter0/when/filt/ccat":din0
+	"/depthwise/filter0/when/filt/const":dout -> "/depthwise/filter0/when/filt/ccat":din1
+	"/depthwise/filter0/when/filt/ccat":dout -> "/depthwise/filter0/when/filt/filt":din
+	"/depthwise/filter0/when/filt/filt":dout -> "/depthwise/filter0/when/filt/sieve_0":din
+	"/depthwise/filter0/when/filt/sieve_0":dout -> "/depthwise/filter0/when/filt/code":din
+	"/depthwise/filter0/wr_req":dout -> "/depthwise/filter0/sdp/sdp_wr_port":din
+	"/depthwise/filter0/flatten1":dout -> "/depthwise/filter0/sdp/sdp_rd_port":addr
+	"/drv0":dout -> "/depthwise/filter0/czip/czip2/zip_sync":din0
+	"/depthwise/filter0/sdp/sdp_rd_port":dout -> "/depthwise/filter0/czip/czip2/zip_sync":din1
+	"/depthwise/filter0/czip/czip2/zip_sync":dout0 -> "/depthwise/filter0/czip/czip2/zip_cat":din0
+	"/depthwise/filter0/czip/czip2/zip_sync":dout1 -> "/depthwise/filter0/czip/czip2/zip_cat":din1
+	"/depthwise/filter0/dot0/accum/reduce":dout -> "/depthwise/filter0/dot0/qround":din
+	"/depthwise/filter0/dot0/qround":dout -> "/depthwise/filter0/dot0/saturate":data
+	"/depthwise/filter0/sieve_0":dout -> "/depthwise/filter0/dot0/queuemap/quenvelope":din
+	"/depthwise/filter0/sieve_0":dout -> "/depthwise/filter0/dot0/queuemap/project":din
+	"/depthwise/filter0/dot0/queuemap/project":dout -> "/depthwise/filter0/dot0/queuemap/mul":din
+	"/depthwise/filter0/dot0/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter0/dot0/queuemap/code":din
+	"/depthwise/filter0/dot0/queuemap/quenvelope":dout -> "/depthwise/filter0/dot0/queuemap/czip/czip2/zip_sync":din0
+	"/depthwise/filter0/dot0/queuemap/mul":dout -> "/depthwise/filter0/dot0/queuemap/czip/czip2/zip_sync":din1
+	"/depthwise/filter0/dot0/queuemap/czip/czip2/zip_sync":dout0 -> "/depthwise/filter0/dot0/queuemap/czip/czip2/zip_cat":din0
+	"/depthwise/filter0/dot0/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter0/dot0/queuemap/czip/czip2/zip_cat":din1
+	"/depthwise/filter0/dot0/queuemap/code":dout -> "/depthwise/filter0/dot0/accum/reduce":din
+	"/depthwise/filter0/dot0/const":dout -> "/depthwise/filter0/dot0/accum/reduce":init
+	"/depthwise/filter0/dot1/accum/reduce":dout -> "/depthwise/filter0/dot1/qround":din
+	"/depthwise/filter0/dot1/qround":dout -> "/depthwise/filter0/dot1/saturate":data
+	"/depthwise/filter0/sieve_1":dout -> "/depthwise/filter0/dot1/queuemap/project":din
+	"/depthwise/filter0/sieve_1":dout -> "/depthwise/filter0/dot1/queuemap/quenvelope":din
+	"/depthwise/filter0/dot1/queuemap/project":dout -> "/depthwise/filter0/dot1/queuemap/mul":din
+	"/depthwise/filter0/dot1/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter0/dot1/queuemap/code":din
+	"/depthwise/filter0/dot1/queuemap/quenvelope":dout -> "/depthwise/filter0/dot1/queuemap/czip/czip2/zip_sync":din0
+	"/depthwise/filter0/dot1/queuemap/mul":dout -> "/depthwise/filter0/dot1/queuemap/czip/czip2/zip_sync":din1
+	"/depthwise/filter0/dot1/queuemap/czip/czip2/zip_sync":dout0 -> "/depthwise/filter0/dot1/queuemap/czip/czip2/zip_cat":din0
+	"/depthwise/filter0/dot1/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter0/dot1/queuemap/czip/czip2/zip_cat":din1
+	"/depthwise/filter0/dot1/queuemap/code":dout -> "/depthwise/filter0/dot1/accum/reduce":din
+	"/depthwise/filter0/dot1/const":dout -> "/depthwise/filter0/dot1/accum/reduce":init
+	"/depthwise/filter0/dot2/accum/reduce":dout -> "/depthwise/filter0/dot2/qround":din
+	"/depthwise/filter0/dot2/qround":dout -> "/depthwise/filter0/dot2/saturate":data
+	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/project":din
+	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/quenvelope":din
+	"/depthwise/filter0/dot2/queuemap/project":dout -> "/depthwise/filter0/dot2/queuemap/mul":din
+	"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter0/dot2/queuemap/code":din
+	"/depthwise/filter0/dot2/queuemap/quenvelope":dout -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":din0
+	"/depthwise/filter0/dot2/queuemap/mul":dout -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":din1
+	"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":dout0 -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat":din0
+	"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat":din1
+	"/depthwise/filter0/dot2/queuemap/code":dout -> "/depthwise/filter0/dot2/accum/reduce":din
+	"/depthwise/filter0/dot2/const":dout -> "/depthwise/filter0/dot2/accum/reduce":init
+	"/depthwise/qdeal":dout1 -> "/depthwise/filter1/sieve_eot":din
+	"/depthwise/qdeal":dout1 -> "/depthwise/filter1/wr_req":weights
+	"/depthwise/filter1/sieve_eot":dout -> "/depthwise/filter1/dreg":din
+	"/depthwise/filter1/when/filt/code":dout -> "/depthwise/filter1/ccat0":din1
+	"/depthwise/filter1/const1":dout -> "/depthwise/filter1/ccat0":din0
+	"/depthwise/filter1/ccat0":dout -> "/depthwise/filter1/replicate":din
+	"/depthwise/filter1/replicate":dout -> "/depthwise/filter1/flatten0":din
+	"/depthwise/filter1/flatten0":dout -> "/depthwise/filter1/qrange":stop
+	"/depthwise/filter1/qrange":dout -> "/depthwise/filter1/flatten1":din
+	"/depthwise/filter1/czip/czip2/zip_cat":dout -> "/depthwise/filter1/reorder":din
+	"/depthwise/filter1/reorder":dout -> "/depthwise/filter1/sieve_1":din
+	"/depthwise/filter1/reorder":dout -> "/depthwise/filter1/sieve_2":din
+	"/depthwise/filter1/reorder":dout -> "/depthwise/filter1/sieve_0":din
+	"/depthwise/filter1/dot0/saturate":dout -> "/depthwise/filter1/ccat1":din0
+	"/depthwise/filter1/dot1/saturate":dout -> "/depthwise/filter1/ccat1":din1
+	"/depthwise/filter1/dot2/saturate":dout -> "/depthwise/filter1/ccat1":din2
+	"/depthwise/filter1/ccat1":dout -> "/depthwise/filter1/cast":din
+	"/depthwise/filter1/const0":dout -> "/depthwise/filter1/when/ccat":din0
+	"/depthwise/filter1/dreg":dout -> "/depthwise/filter1/when/ccat":din1
+	"/depthwise/filter1/when/ccat":dout -> "/depthwise/filter1/when/cast_dout":din
+	"/depthwise/filter1/when/cast_dout":dout -> "/depthwise/filter1/when/filt/ccat":din0
+	"/depthwise/filter1/when/filt/const":dout -> "/depthwise/filter1/when/filt/ccat":din1
+	"/depthwise/filter1/when/filt/ccat":dout -> "/depthwise/filter1/when/filt/filt":din
+	"/depthwise/filter1/when/filt/filt":dout -> "/depthwise/filter1/when/filt/sieve_0":din
+	"/depthwise/filter1/when/filt/sieve_0":dout -> "/depthwise/filter1/when/filt/code":din
+	"/depthwise/filter1/wr_req":dout -> "/depthwise/filter1/sdp/sdp_wr_port":din
+	"/depthwise/filter1/flatten1":dout -> "/depthwise/filter1/sdp/sdp_rd_port":addr
+	"/drv0":dout -> "/depthwise/filter1/czip/czip2/zip_sync":din0
+	"/depthwise/filter1/sdp/sdp_rd_port":dout -> "/depthwise/filter1/czip/czip2/zip_sync":din1
+	"/depthwise/filter1/czip/czip2/zip_sync":dout0 -> "/depthwise/filter1/czip/czip2/zip_cat":din0
+	"/depthwise/filter1/czip/czip2/zip_sync":dout1 -> "/depthwise/filter1/czip/czip2/zip_cat":din1
+	"/depthwise/filter1/dot0/accum/reduce":dout -> "/depthwise/filter1/dot0/qround":din
+	"/depthwise/filter1/dot0/qround":dout -> "/depthwise/filter1/dot0/saturate":data
+	"/depthwise/filter1/sieve_0":dout -> "/depthwise/filter1/dot0/queuemap/project":din
+	"/depthwise/filter1/sieve_0":dout -> "/depthwise/filter1/dot0/queuemap/quenvelope":din
+	"/depthwise/filter1/dot0/queuemap/project":dout -> "/depthwise/filter1/dot0/queuemap/mul":din
+	"/depthwise/filter1/dot0/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter1/dot0/queuemap/code":din
+	"/depthwise/filter1/dot0/queuemap/quenvelope":dout -> "/depthwise/filter1/dot0/queuemap/czip/czip2/zip_sync":din0
+	"/depthwise/filter1/dot0/queuemap/mul":dout -> "/depthwise/filter1/dot0/queuemap/czip/czip2/zip_sync":din1
+	"/depthwise/filter1/dot0/queuemap/czip/czip2/zip_sync":dout0 -> "/depthwise/filter1/dot0/queuemap/czip/czip2/zip_cat":din0
+	"/depthwise/filter1/dot0/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter1/dot0/queuemap/czip/czip2/zip_cat":din1
+	"/depthwise/filter1/dot0/queuemap/code":dout -> "/depthwise/filter1/dot0/accum/reduce":din
+	"/depthwise/filter1/dot0/const":dout -> "/depthwise/filter1/dot0/accum/reduce":init
+	"/depthwise/filter1/dot1/accum/reduce":dout -> "/depthwise/filter1/dot1/qround":din
+	"/depthwise/filter1/dot1/qround":dout -> "/depthwise/filter1/dot1/saturate":data
+	"/depthwise/filter1/sieve_1":dout -> "/depthwise/filter1/dot1/queuemap/project":din
+	"/depthwise/filter1/sieve_1":dout -> "/depthwise/filter1/dot1/queuemap/quenvelope":din
+	"/depthwise/filter1/dot1/queuemap/project":dout -> "/depthwise/filter1/dot1/queuemap/mul":din
+	"/depthwise/filter1/dot1/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter1/dot1/queuemap/code":din
+	"/depthwise/filter1/dot1/queuemap/quenvelope":dout -> "/depthwise/filter1/dot1/queuemap/czip/czip2/zip_sync":din0
+	"/depthwise/filter1/dot1/queuemap/mul":dout -> "/depthwise/filter1/dot1/queuemap/czip/czip2/zip_sync":din1
+	"/depthwise/filter1/dot1/queuemap/czip/czip2/zip_sync":dout0 -> "/depthwise/filter1/dot1/queuemap/czip/czip2/zip_cat":din0
+	"/depthwise/filter1/dot1/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter1/dot1/queuemap/czip/czip2/zip_cat":din1
+	"/depthwise/filter1/dot1/queuemap/code":dout -> "/depthwise/filter1/dot1/accum/reduce":din
+	"/depthwise/filter1/dot1/const":dout -> "/depthwise/filter1/dot1/accum/reduce":init
+	"/depthwise/filter1/dot2/accum/reduce":dout -> "/depthwise/filter1/dot2/qround":din
+	"/depthwise/filter1/dot2/qround":dout -> "/depthwise/filter1/dot2/saturate":data
+	"/depthwise/filter1/sieve_2":dout -> "/depthwise/filter1/dot2/queuemap/project":din
+	"/depthwise/filter1/sieve_2":dout -> "/depthwise/filter1/dot2/queuemap/quenvelope":din
+	"/depthwise/filter1/dot2/queuemap/project":dout -> "/depthwise/filter1/dot2/queuemap/mul":din
+	"/depthwise/filter1/dot2/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter1/dot2/queuemap/code":din
+	"/depthwise/filter1/dot2/queuemap/quenvelope":dout -> "/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync":din0
+	"/depthwise/filter1/dot2/queuemap/mul":dout -> "/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync":din1
+	"/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync":dout0 -> "/depthwise/filter1/dot2/queuemap/czip/czip2/zip_cat":din0
+	"/depthwise/filter1/dot2/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter1/dot2/queuemap/czip/czip2/zip_cat":din1
+	"/depthwise/filter1/dot2/queuemap/code":dout -> "/depthwise/filter1/dot2/accum/reduce":din
+	"/depthwise/filter1/dot2/const":dout -> "/depthwise/filter1/dot2/accum/reduce":init
+}
