@@ -9,7 +9,6 @@ https://github.com/vladimirtomic/anari-ai
 """
 
 import graphviz
-from pygears import find
 from pygears.core.intf import Intf
 from pygears.core.port import HDLProducer, HDLConsumer
 
@@ -47,7 +46,7 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
         for child in gear.child:
             render_gear(child, gear)
 
-    render_gear(find('/'))
+    render_gear(gear)
 
     g.view()
 
@@ -192,8 +191,8 @@ def render_dag(gear, name='grand_tour_dag', format='pdf'):
         
         return wires
 
-    render_gear(find('/'), g)
-    wires = render_wires(find('/'), g)
+    render_gear(gear, g)
+    wires = render_wires(gear, g)
 
     printed_wires = set()
 
