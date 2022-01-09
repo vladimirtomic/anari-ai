@@ -270,9 +270,9 @@ digraph depthwise_graphviz_dag {
 	"/depthwise/filter0/flatten0":dout -> "/depthwise/filter0/qrange":stop
 	"/depthwise/filter0/qrange":dout -> "/depthwise/filter0/flatten1":din
 	"/depthwise/filter0/czip/czip2/zip_cat":dout -> "/depthwise/filter0/reorder":din
+	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_0":din
 	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_1":din
 	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_2":din
-	"/depthwise/filter0/reorder":dout -> "/depthwise/filter0/sieve_0":din
 	"/depthwise/filter0/dot0/saturate":dout -> "/depthwise/filter0/ccat1":din0
 	"/depthwise/filter0/dot1/saturate":dout -> "/depthwise/filter0/ccat1":din1
 	"/depthwise/filter0/dot2/saturate":dout -> "/depthwise/filter0/ccat1":din2
@@ -317,8 +317,8 @@ digraph depthwise_graphviz_dag {
 	"/depthwise/filter0/dot1/const":dout -> "/depthwise/filter0/dot1/accum/reduce":init
 	"/depthwise/filter0/dot2/accum/reduce":dout -> "/depthwise/filter0/dot2/qround":din
 	"/depthwise/filter0/dot2/qround":dout -> "/depthwise/filter0/dot2/saturate":data
-	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/quenvelope":din
 	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/project":din
+	"/depthwise/filter0/sieve_2":dout -> "/depthwise/filter0/dot2/queuemap/quenvelope":din
 	"/depthwise/filter0/dot2/queuemap/project":dout -> "/depthwise/filter0/dot2/queuemap/mul":din
 	"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat":dout -> "/depthwise/filter0/dot2/queuemap/code":din
 	"/depthwise/filter0/dot2/queuemap/quenvelope":dout -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":din0
@@ -327,8 +327,8 @@ digraph depthwise_graphviz_dag {
 	"/depthwise/filter0/dot2/queuemap/czip/czip2/zip_sync":dout1 -> "/depthwise/filter0/dot2/queuemap/czip/czip2/zip_cat":din1
 	"/depthwise/filter0/dot2/queuemap/code":dout -> "/depthwise/filter0/dot2/accum/reduce":din
 	"/depthwise/filter0/dot2/const":dout -> "/depthwise/filter0/dot2/accum/reduce":init
-	"/depthwise/qdeal":dout1 -> "/depthwise/filter1/sieve_eot":din
 	"/depthwise/qdeal":dout1 -> "/depthwise/filter1/wr_req":weights
+	"/depthwise/qdeal":dout1 -> "/depthwise/filter1/sieve_eot":din
 	"/depthwise/filter1/sieve_eot":dout -> "/depthwise/filter1/dreg":din
 	"/depthwise/filter1/when/filt/code":dout -> "/depthwise/filter1/ccat0":din1
 	"/depthwise/filter1/const1":dout -> "/depthwise/filter1/ccat0":din0

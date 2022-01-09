@@ -1,6 +1,6 @@
 // Anari AI - Hierarchy Tree
 graph depthwise_graphviz_hierarchy_tree {
-	rankdir=TD
+	rankdir=LR
 	Top [label=Top shape=record]
 	"/drv0" [label="/drv0" shape=record]
 	Top -- "/drv0"

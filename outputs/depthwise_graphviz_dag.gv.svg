@@ -78,6 +78,11 @@
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5612,-845C5612,-845 8418,-845 8418,-845 8424,-845 8430,-851 8430,-857 8430,-857 8430,-1083 8430,-1083 8430,-1089 8424,-1095 8418,-1095 8418,-1095 5612,-1095 5612,-1095 5606,-1095 5600,-1089 5600,-1083 5600,-1083 5600,-857 5600,-857 5600,-851 5606,-845 5612,-845"/>
 <text text-anchor="middle" x="7015" y="-1079.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">dot1</text>
 </g>
+<g id="clust18" class="cluster">
+<title>cluster_/depthwise/filter0/dot1/accum</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-903C7539,-903 7825,-903 7825,-903 7831,-903 7837,-909 7837,-915 7837,-915 7837,-978 7837,-978 7837,-984 7831,-990 7825,-990 7825,-990 7539,-990 7539,-990 7533,-990 7527,-984 7527,-978 7527,-978 7527,-915 7527,-915 7527,-909 7533,-903 7539,-903"/>
+<text text-anchor="middle" x="7682" y="-974.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
+</g>
 <g id="clust15" class="cluster">
 <title>cluster_/depthwise/filter0/dot1/queuemap</title>
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5620,-899C5620,-899 7495,-899 7495,-899 7501,-899 7507,-905 7507,-911 7507,-911 7507,-1052 7507,-1052 7507,-1058 7501,-1064 7495,-1064 7495,-1064 5620,-1064 5620,-1064 5614,-1064 5608,-1058 5608,-1052 5608,-1052 5608,-911 5608,-911 5608,-905 5614,-899 5620,-899"/>
@@ -93,15 +98,15 @@
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M6347,-915C6347,-915 7156,-915 7156,-915 7162,-915 7168,-921 7168,-927 7168,-927 7168,-990 7168,-990 7168,-996 7162,-1002 7156,-1002 7156,-1002 6347,-1002 6347,-1002 6341,-1002 6335,-996 6335,-990 6335,-990 6335,-927 6335,-927 6335,-921 6341,-915 6347,-915"/>
 <text text-anchor="middle" x="6751.5" y="-986.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip2</text>
 </g>
-<g id="clust18" class="cluster">
-<title>cluster_/depthwise/filter0/dot1/accum</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-903C7539,-903 7825,-903 7825,-903 7831,-903 7837,-909 7837,-915 7837,-915 7837,-978 7837,-978 7837,-984 7831,-990 7825,-990 7825,-990 7539,-990 7539,-990 7533,-990 7527,-984 7527,-978 7527,-978 7527,-915 7527,-915 7527,-909 7533,-903 7539,-903"/>
-<text text-anchor="middle" x="7682" y="-974.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
-</g>
 <g id="clust19" class="cluster">
 <title>cluster_/depthwise/filter0/dot2</title>
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5612,-1103C5612,-1103 8418,-1103 8418,-1103 8424,-1103 8430,-1109 8430,-1115 8430,-1115 8430,-1341 8430,-1341 8430,-1347 8424,-1353 8418,-1353 8418,-1353 5612,-1353 5612,-1353 5606,-1353 5600,-1347 5600,-1341 5600,-1341 5600,-1115 5600,-1115 5600,-1109 5606,-1103 5612,-1103"/>
 <text text-anchor="middle" x="7015" y="-1337.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">dot2</text>
+</g>
+<g id="clust23" class="cluster">
+<title>cluster_/depthwise/filter0/dot2/accum</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-1111C7539,-1111 7825,-1111 7825,-1111 7831,-1111 7837,-1117 7837,-1123 7837,-1123 7837,-1186 7837,-1186 7837,-1192 7831,-1198 7825,-1198 7825,-1198 7539,-1198 7539,-1198 7533,-1198 7527,-1192 7527,-1186 7527,-1186 7527,-1123 7527,-1123 7527,-1117 7533,-1111 7539,-1111"/>
+<text text-anchor="middle" x="7682" y="-1182.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
 </g>
 <g id="clust20" class="cluster">
 <title>cluster_/depthwise/filter0/dot2/queuemap</title>
@@ -118,65 +123,10 @@
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M6347,-1173C6347,-1173 7156,-1173 7156,-1173 7162,-1173 7168,-1179 7168,-1185 7168,-1185 7168,-1248 7168,-1248 7168,-1254 7162,-1260 7156,-1260 7156,-1260 6347,-1260 6347,-1260 6341,-1260 6335,-1254 6335,-1248 6335,-1248 6335,-1185 6335,-1185 6335,-1179 6341,-1173 6347,-1173"/>
 <text text-anchor="middle" x="6751.5" y="-1244.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip2</text>
 </g>
-<g id="clust23" class="cluster">
-<title>cluster_/depthwise/filter0/dot2/accum</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-1111C7539,-1111 7825,-1111 7825,-1111 7831,-1111 7837,-1117 7837,-1123 7837,-1123 7837,-1186 7837,-1186 7837,-1192 7831,-1198 7825,-1198 7825,-1198 7539,-1198 7539,-1198 7533,-1198 7527,-1192 7527,-1186 7527,-1186 7527,-1123 7527,-1123 7527,-1117 7533,-1111 7539,-1111"/>
-<text text-anchor="middle" x="7682" y="-1182.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
-</g>
 <g id="clust24" class="cluster">
 <title>cluster_/depthwise/filter1</title>
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M387,-24C387,-24 8926,-24 8926,-24 8932,-24 8938,-30 8938,-36 8938,-36 8938,-817 8938,-817 8938,-823 8932,-829 8926,-829 8926,-829 387,-829 387,-829 381,-829 375,-823 375,-817 375,-817 375,-36 375,-36 375,-30 381,-24 387,-24"/>
 <text text-anchor="middle" x="4656.5" y="-813.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">filter1</text>
-</g>
-<g id="clust25" class="cluster">
-<title>cluster_/depthwise/filter1/when</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M914,-580C914,-580 2698,-580 2698,-580 2704,-580 2710,-586 2710,-592 2710,-592 2710,-740 2710,-740 2710,-746 2704,-752 2698,-752 2698,-752 914,-752 914,-752 908,-752 902,-746 902,-740 902,-740 902,-592 902,-592 902,-586 908,-580 914,-580"/>
-<text text-anchor="middle" x="1806" y="-736.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">when</text>
-</g>
-<g id="clust26" class="cluster">
-<title>cluster_/depthwise/filter1/when/filt</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M1211.5,-634C1211.5,-634 2690,-634 2690,-634 2696,-634 2702,-640 2702,-646 2702,-646 2702,-709 2702,-709 2702,-715 2696,-721 2690,-721 2690,-721 1211.5,-721 1211.5,-721 1205.5,-721 1199.5,-715 1199.5,-709 1199.5,-709 1199.5,-646 1199.5,-646 1199.5,-640 1205.5,-634 1211.5,-634"/>
-<text text-anchor="middle" x="1950.75" y="-705.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">filt</text>
-</g>
-<g id="clust27" class="cluster">
-<title>cluster_/depthwise/filter1/sdp</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M4090,-666C4090,-666 4367,-666 4367,-666 4373,-666 4379,-672 4379,-678 4379,-678 4379,-786 4379,-786 4379,-792 4373,-798 4367,-798 4367,-798 4090,-798 4090,-798 4084,-798 4078,-792 4078,-786 4078,-786 4078,-678 4078,-678 4078,-672 4084,-666 4090,-666"/>
-<text text-anchor="middle" x="4228.5" y="-782.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">sdp</text>
-</g>
-<g id="clust28" class="cluster">
-<title>cluster_/depthwise/filter1/czip</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M4403,-665C4403,-665 5052,-665 5052,-665 5058,-665 5064,-671 5064,-677 5064,-677 5064,-779 5064,-779 5064,-785 5058,-791 5052,-791 5052,-791 4403,-791 4403,-791 4397,-791 4391,-785 4391,-779 4391,-779 4391,-677 4391,-677 4391,-671 4397,-665 4403,-665"/>
-<text text-anchor="middle" x="4727.5" y="-775.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip</text>
-</g>
-<g id="clust29" class="cluster">
-<title>cluster_/depthwise/filter1/czip/czip2</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M4411,-673C4411,-673 5044,-673 5044,-673 5050,-673 5056,-679 5056,-685 5056,-685 5056,-748 5056,-748 5056,-754 5050,-760 5044,-760 5044,-760 4411,-760 4411,-760 4405,-760 4399,-754 4399,-748 4399,-748 4399,-685 4399,-685 4399,-679 4405,-673 4411,-673"/>
-<text text-anchor="middle" x="4727.5" y="-744.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip2</text>
-</g>
-<g id="clust30" class="cluster">
-<title>cluster_/depthwise/filter1/dot0</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5612,-548C5612,-548 8418,-548 8418,-548 8424,-548 8430,-554 8430,-560 8430,-560 8430,-786 8430,-786 8430,-792 8424,-798 8418,-798 8418,-798 5612,-798 5612,-798 5606,-798 5600,-792 5600,-786 5600,-786 5600,-560 5600,-560 5600,-554 5606,-548 5612,-548"/>
-<text text-anchor="middle" x="7015" y="-782.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">dot0</text>
-</g>
-<g id="clust31" class="cluster">
-<title>cluster_/depthwise/filter1/dot0/queuemap</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5620,-602C5620,-602 7495,-602 7495,-602 7501,-602 7507,-608 7507,-614 7507,-614 7507,-755 7507,-755 7507,-761 7501,-767 7495,-767 7495,-767 5620,-767 5620,-767 5614,-767 5608,-761 5608,-755 5608,-755 5608,-614 5608,-614 5608,-608 5614,-602 5620,-602"/>
-<text text-anchor="middle" x="6557.5" y="-751.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">queuemap</text>
-</g>
-<g id="clust32" class="cluster">
-<title>cluster_/depthwise/filter1/dot0/queuemap/czip</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M6339,-610C6339,-610 7164,-610 7164,-610 7170,-610 7176,-616 7176,-622 7176,-622 7176,-724 7176,-724 7176,-730 7170,-736 7164,-736 7164,-736 6339,-736 6339,-736 6333,-736 6327,-730 6327,-724 6327,-724 6327,-622 6327,-622 6327,-616 6333,-610 6339,-610"/>
-<text text-anchor="middle" x="6751.5" y="-720.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip</text>
-</g>
-<g id="clust33" class="cluster">
-<title>cluster_/depthwise/filter1/dot0/queuemap/czip/czip2</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M6347,-618C6347,-618 7156,-618 7156,-618 7162,-618 7168,-624 7168,-630 7168,-630 7168,-693 7168,-693 7168,-699 7162,-705 7156,-705 7156,-705 6347,-705 6347,-705 6341,-705 6335,-699 6335,-693 6335,-693 6335,-630 6335,-630 6335,-624 6341,-618 6347,-618"/>
-<text text-anchor="middle" x="6751.5" y="-689.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip2</text>
-</g>
-<g id="clust34" class="cluster">
-<title>cluster_/depthwise/filter1/dot0/accum</title>
-<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-556C7539,-556 7825,-556 7825,-556 7831,-556 7837,-562 7837,-568 7837,-568 7837,-631 7837,-631 7837,-637 7831,-643 7825,-643 7825,-643 7539,-643 7539,-643 7533,-643 7527,-637 7527,-631 7527,-631 7527,-568 7527,-568 7527,-562 7533,-556 7539,-556"/>
-<text text-anchor="middle" x="7682" y="-627.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
 </g>
 <g id="clust35" class="cluster">
 <title>cluster_/depthwise/filter1/dot1</title>
@@ -227,6 +177,56 @@
 <title>cluster_/depthwise/filter1/dot2/accum</title>
 <path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-348C7539,-348 7825,-348 7825,-348 7831,-348 7837,-354 7837,-360 7837,-360 7837,-423 7837,-423 7837,-429 7831,-435 7825,-435 7825,-435 7539,-435 7539,-435 7533,-435 7527,-429 7527,-423 7527,-423 7527,-360 7527,-360 7527,-354 7533,-348 7539,-348"/>
 <text text-anchor="middle" x="7682" y="-419.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
+</g>
+<g id="clust25" class="cluster">
+<title>cluster_/depthwise/filter1/when</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M914,-580C914,-580 2698,-580 2698,-580 2704,-580 2710,-586 2710,-592 2710,-592 2710,-740 2710,-740 2710,-746 2704,-752 2698,-752 2698,-752 914,-752 914,-752 908,-752 902,-746 902,-740 902,-740 902,-592 902,-592 902,-586 908,-580 914,-580"/>
+<text text-anchor="middle" x="1806" y="-736.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">when</text>
+</g>
+<g id="clust26" class="cluster">
+<title>cluster_/depthwise/filter1/when/filt</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M1211.5,-634C1211.5,-634 2690,-634 2690,-634 2696,-634 2702,-640 2702,-646 2702,-646 2702,-709 2702,-709 2702,-715 2696,-721 2690,-721 2690,-721 1211.5,-721 1211.5,-721 1205.5,-721 1199.5,-715 1199.5,-709 1199.5,-709 1199.5,-646 1199.5,-646 1199.5,-640 1205.5,-634 1211.5,-634"/>
+<text text-anchor="middle" x="1950.75" y="-705.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">filt</text>
+</g>
+<g id="clust27" class="cluster">
+<title>cluster_/depthwise/filter1/sdp</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M4090,-666C4090,-666 4367,-666 4367,-666 4373,-666 4379,-672 4379,-678 4379,-678 4379,-786 4379,-786 4379,-792 4373,-798 4367,-798 4367,-798 4090,-798 4090,-798 4084,-798 4078,-792 4078,-786 4078,-786 4078,-678 4078,-678 4078,-672 4084,-666 4090,-666"/>
+<text text-anchor="middle" x="4228.5" y="-782.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">sdp</text>
+</g>
+<g id="clust28" class="cluster">
+<title>cluster_/depthwise/filter1/czip</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M4403,-665C4403,-665 5052,-665 5052,-665 5058,-665 5064,-671 5064,-677 5064,-677 5064,-779 5064,-779 5064,-785 5058,-791 5052,-791 5052,-791 4403,-791 4403,-791 4397,-791 4391,-785 4391,-779 4391,-779 4391,-677 4391,-677 4391,-671 4397,-665 4403,-665"/>
+<text text-anchor="middle" x="4727.5" y="-775.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip</text>
+</g>
+<g id="clust29" class="cluster">
+<title>cluster_/depthwise/filter1/czip/czip2</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M4411,-673C4411,-673 5044,-673 5044,-673 5050,-673 5056,-679 5056,-685 5056,-685 5056,-748 5056,-748 5056,-754 5050,-760 5044,-760 5044,-760 4411,-760 4411,-760 4405,-760 4399,-754 4399,-748 4399,-748 4399,-685 4399,-685 4399,-679 4405,-673 4411,-673"/>
+<text text-anchor="middle" x="4727.5" y="-744.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip2</text>
+</g>
+<g id="clust30" class="cluster">
+<title>cluster_/depthwise/filter1/dot0</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5612,-548C5612,-548 8418,-548 8418,-548 8424,-548 8430,-554 8430,-560 8430,-560 8430,-786 8430,-786 8430,-792 8424,-798 8418,-798 8418,-798 5612,-798 5612,-798 5606,-798 5600,-792 5600,-786 5600,-786 5600,-560 5600,-560 5600,-554 5606,-548 5612,-548"/>
+<text text-anchor="middle" x="7015" y="-782.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">dot0</text>
+</g>
+<g id="clust31" class="cluster">
+<title>cluster_/depthwise/filter1/dot0/queuemap</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M5620,-602C5620,-602 7495,-602 7495,-602 7501,-602 7507,-608 7507,-614 7507,-614 7507,-755 7507,-755 7507,-761 7501,-767 7495,-767 7495,-767 5620,-767 5620,-767 5614,-767 5608,-761 5608,-755 5608,-755 5608,-614 5608,-614 5608,-608 5614,-602 5620,-602"/>
+<text text-anchor="middle" x="6557.5" y="-751.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">queuemap</text>
+</g>
+<g id="clust32" class="cluster">
+<title>cluster_/depthwise/filter1/dot0/queuemap/czip</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M6339,-610C6339,-610 7164,-610 7164,-610 7170,-610 7176,-616 7176,-622 7176,-622 7176,-724 7176,-724 7176,-730 7170,-736 7164,-736 7164,-736 6339,-736 6339,-736 6333,-736 6327,-730 6327,-724 6327,-724 6327,-622 6327,-622 6327,-616 6333,-610 6339,-610"/>
+<text text-anchor="middle" x="6751.5" y="-720.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip</text>
+</g>
+<g id="clust33" class="cluster">
+<title>cluster_/depthwise/filter1/dot0/queuemap/czip/czip2</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M6347,-618C6347,-618 7156,-618 7156,-618 7162,-618 7168,-624 7168,-630 7168,-630 7168,-693 7168,-693 7168,-699 7162,-705 7156,-705 7156,-705 6347,-705 6347,-705 6341,-705 6335,-699 6335,-693 6335,-693 6335,-630 6335,-630 6335,-624 6341,-618 6347,-618"/>
+<text text-anchor="middle" x="6751.5" y="-689.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">czip2</text>
+</g>
+<g id="clust34" class="cluster">
+<title>cluster_/depthwise/filter1/dot0/accum</title>
+<path fill="#888888" fill-opacity="0.466667" stroke="black" d="M7539,-556C7539,-556 7825,-556 7825,-556 7831,-556 7837,-562 7837,-568 7837,-568 7837,-631 7837,-631 7837,-637 7831,-643 7825,-643 7825,-643 7539,-643 7539,-643 7533,-643 7527,-637 7527,-631 7527,-631 7527,-568 7527,-568 7527,-562 7533,-556 7539,-556"/>
+<text text-anchor="middle" x="7682" y="-627.8" font-family="Times,serif" font-size="14.00" fill="#ffffff">accum</text>
 </g>
 <!-- /drv0 -->
 <g id="node1" class="node">
@@ -349,7 +349,7 @@
 <text text-anchor="middle" x="603.5" y="-732.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/qdeal&#45;&gt;/depthwise/filter1/sieve_eot -->
-<g id="edge73" class="edge">
+<g id="edge74" class="edge">
 <title>/depthwise/qdeal:dout1&#45;&gt;/depthwise/filter1/sieve_eot:din</title>
 <path fill="none" stroke="black" d="M347,-830C387.33,-830 346.35,-752.8 371.43,-738.32"/>
 <polygon fill="black" stroke="black" points="372.54,-741.66 381.5,-736 370.97,-734.84 372.54,-741.66"/>
@@ -365,7 +365,7 @@
 <text text-anchor="middle" x="4029.5" y="-759.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/qdeal&#45;&gt;/depthwise/filter1/wr_req -->
-<g id="edge74" class="edge">
+<g id="edge73" class="edge">
 <title>/depthwise/qdeal:dout1&#45;&gt;/depthwise/filter1/wr_req:weights</title>
 <path fill="none" stroke="black" d="M347,-830C533.27,-830 579.73,-821 766,-821 766,-821 766,-821 3379,-821 3563.17,-821 3607.85,-765.08 3786.97,-763.06"/>
 <polygon fill="black" stroke="black" points="3787.02,-766.56 3797,-763 3786.98,-759.56 3787.02,-766.56"/>
@@ -705,7 +705,7 @@
 <text text-anchor="middle" x="5559.5" y="-1438.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/filter0/reorder&#45;&gt;/depthwise/filter0/sieve_0 -->
-<g id="edge18" class="edge">
+<g id="edge16" class="edge">
 <title>/depthwise/filter0/reorder:dout&#45;&gt;/depthwise/filter0/sieve_0:din</title>
 <path fill="none" stroke="black" d="M5292.5,-1246C5292.5,-1327.6 5359.63,-1337.22 5365.14,-1412.91"/>
 <polygon fill="black" stroke="black" points="5361.65,-1413.13 5365.5,-1423 5368.64,-1412.88 5361.65,-1413.13"/>
@@ -721,7 +721,7 @@
 <text text-anchor="middle" x="5559.5" y="-1010.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/filter0/reorder&#45;&gt;/depthwise/filter0/sieve_1 -->
-<g id="edge16" class="edge">
+<g id="edge17" class="edge">
 <title>/depthwise/filter0/reorder:dout&#45;&gt;/depthwise/filter0/sieve_1:din</title>
 <path fill="none" stroke="black" d="M5292.5,-1208C5292.5,-1127.35 5359.36,-1117.97 5365.11,-1043.44"/>
 <polygon fill="black" stroke="black" points="5368.62,-1043.12 5365.5,-1033 5361.63,-1042.86 5368.62,-1043.12"/>
@@ -737,7 +737,7 @@
 <text text-anchor="middle" x="5559.5" y="-1223.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/filter0/reorder&#45;&gt;/depthwise/filter0/sieve_2 -->
-<g id="edge17" class="edge">
+<g id="edge18" class="edge">
 <title>/depthwise/filter0/reorder:dout&#45;&gt;/depthwise/filter0/sieve_2:din</title>
 <path fill="none" stroke="black" d="M5313,-1227C5325,-1227 5330.25,-1227 5338.88,-1227"/>
 <polygon fill="black" stroke="black" points="5339,-1230.5 5349,-1227 5339,-1223.5 5339,-1230.5"/>
@@ -1139,7 +1139,7 @@
 <text text-anchor="middle" x="6286.5" y="-1196.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/filter0/sieve_2&#45;&gt;/depthwise/filter0/dot2/queuemap/quenvelope -->
-<g id="edge63" class="edge">
+<g id="edge64" class="edge">
 <title>/depthwise/filter0/sieve_2:dout&#45;&gt;/depthwise/filter0/dot2/queuemap/quenvelope:din</title>
 <path fill="none" stroke="black" d="M5580,-1227C5589.06,-1227 5591.01,-1224.18 5600,-1223 5758.57,-1202.27 5801.73,-1200.09 5956.63,-1200"/>
 <polygon fill="black" stroke="black" points="5957,-1203.5 5967,-1200 5957,-1196.5 5957,-1203.5"/>
@@ -1155,7 +1155,7 @@
 <text text-anchor="middle" x="5910.5" y="-1246.3" font-family="Times,serif" font-size="14.00" fill="#ffffff">dout</text>
 </g>
 <!-- /depthwise/filter0/sieve_2&#45;&gt;/depthwise/filter0/dot2/queuemap/project -->
-<g id="edge64" class="edge">
+<g id="edge63" class="edge">
 <title>/depthwise/filter0/sieve_2:dout&#45;&gt;/depthwise/filter0/dot2/queuemap/project:din</title>
 <path fill="none" stroke="black" d="M5580,-1227C5594.25,-1227 5596.07,-1240.76 5604.69,-1246.99"/>
 <polygon fill="black" stroke="black" points="5603.91,-1250.42 5614.5,-1250 5605.97,-1243.72 5603.91,-1250.42"/>

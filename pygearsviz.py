@@ -27,7 +27,7 @@ def render_hierarchy_tree(gear, name='grand_tour_hierarchy_tree', format='pdf'):
     """
 
     g = graphviz.Graph(name=name, comment='Anari AI - Hierarchy Tree', format=format)
-    g.attr(rankdir='TD')
+    g.attr(rankdir='LR')
 
     def name(gear):
         """Workaround for the Top Gear not having a name

@@ -46,8 +46,8 @@ digraph dag_graphviz_dag {
 		"/priority_mux" [label="{{<din0> din0|<din1> din1}|/priority_mux|{<dout> dout}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
 		"/shred" [label="{{<din> din}|/shred|{}}" fillcolor="#22222222" fontcolor="#FFFFFF" style="rounded,filled"]
 	}
-	"/drv0":dout -> "/ccat2":din0
 	"/drv0":dout -> "/ccat0":din0
+	"/drv0":dout -> "/ccat2":din0
 	"/drv1":dout -> "/ccat2":din1
 	"/drv1":dout -> "/ccat0":din1
 	"/ccat0":dout -> "/sub":din
