@@ -16,7 +16,7 @@ Hierarchy tree has been implemented in the basic Graphviz template - no fancy st
 
 Trees are usually plotted vertically (top-to-bottom, sometimes bottom-to-top) - this was resulting in unreadably wide graphs, so the default (hard-coded) orientation was set to left-to-right.
 
-### DAG (drected acyclic graph)
+### DAG (directed acyclic graph)
 
 Initial plots of module architecture in a DAG format were messy with a large number of edges being plotted, which resulted in graph that wasn't easy to understand.
 
